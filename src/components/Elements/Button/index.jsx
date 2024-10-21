@@ -1,12 +1,14 @@
-const index = () => {
+const Button = (props) => {
+  const { children, variant, type } = props;
+
   return (
     <button
-        className="h-12 rounded-md text-sm bg-primary w-full text-white"
-        type="submit"
+      className={`h-12 rounded-md text-sm ${variant}`}
+      type={type}
     >
-        Login
+      {children}
     </button>
   );
 };
 
-export default index;
+export default Button;
