@@ -4,15 +4,17 @@ import SignInPage from "./pages/signIn";
 import SignUpPage from "./pages/signUp";
 import ForgotPassword from "./components/Fragments/ForgotPassword";
 import ErrorRoute from "./pages/errorRoute";
-import AuthLayout from "./components/Layouts/AuthLayout";
+import DashboardPage from "./pages/dashboard";
+import BalancePage from "./pages/balance";
 
 const App = () => {
   const myRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <SignInPage/>,
+	{
+	  path: "/",
+      element: <DashboardPage/>,
 	  errorElement: <ErrorRoute/>,
-    },
+
+	},
 	{
 		path: "/login",
 		element: <SignInPage/>,
@@ -25,6 +27,11 @@ const App = () => {
 		path: "/forgot-password",
 		element: <ForgotPassword /> ,
 	},
+	{
+		path: "/balance",
+		element: <BalancePage/>,
+  
+	  },
 	]);
 
   return (
