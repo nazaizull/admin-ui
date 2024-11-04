@@ -6,6 +6,7 @@ import ForgotPassword from "./components/Fragments/ForgotPassword";
 import ErrorRoute from "./pages/errorRoute";
 import DashboardPage from "./pages/dashboard";
 import BalancePage from "./pages/balance";
+import ExpensesPage from "./pages/expenses";
 
 const App = () => {
   const myRouter = createBrowserRouter([
@@ -32,6 +33,10 @@ const App = () => {
 		element: <BalancePage/>,
   
 	  },
+	{
+		path: "/expenses",
+		element: <ExpensesPage/>,
+	},
 	]);
 
   return (

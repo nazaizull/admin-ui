@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Icon } from "../Icon";
 import Logo from '../Elements/Logo'; // Sesuaikan path sesuai struktur folder Anda
 
@@ -53,16 +53,21 @@ const Navbar = () =>{
     return(
         <nav className="bg-defaultBlack text-special-bg2 sm:w-72 w-28 h-screen px-7 py-12 flex flex-col justify-between">
         <div>
-        <div className="flex justify-center mb-10">
+         <NavLink to="/" className="flex justify-center mb-10">
             <Logo variant="text-white text-sm sm:text-2x1" />
-        </div>
+          </NavLink>
         {menus.map((menu) => (
-          <Link key={menu.id} to={menu.link}>
-            <div  className="flex hover:bg-special-bg3 hover:text-white px-4 py-3 rounded-md">
+          <NavLink
+           key={menu.id} 
+           to={menu.link}
+           className={({ isActive })=>
+            isActive
+           ? "flex bg-primary text-white font-bold px-4 py-3 rounded-md"
+           : "flex hover: bg-special-bg3 hover:text-white px-4 py-3 rounded-md"
+          }>
               <div className="mx-auto sm:mx-0">{menu.icon}</div>
               <div className="ms-3 hidden sm:block">{menu.label}</div>
-            </div>
-          </Link>
+          </NavLink>
         ))}
       </div>
       <div className="sticky bottom-12">
